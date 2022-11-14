@@ -9,21 +9,25 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
+
+
+
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
-  
+
   // FOR loop to create the time blocks for standard working hours
 
   var container = $(".container-fluid");
+  var savedEvents = [];
 
   for(var i = 9; i < 18; i++) {
-  
+
   // time in 12 hour format
-    if (i > 12) { 
-      var hour = i - 12; 
+    if (i > 12) {
+      var hour = i - 12;
       var ampm = "pm"; }
       else if (i === 12) {
         var hour = i;
@@ -33,13 +37,13 @@ $(function () {
         var hour = i;
         var ampm = "am";
       }
-        
+
   // create the time block
     var newTimeBlock = document.createElement("div");
     var newTimeBlockElement = document.createElement("div");
     var newTextArea = document.createElement("textarea");
     var newButton = document.createElement("button");
-    var newImage = document.createElement("img");
+    var newImage = document.createElement("i");
     newTimeBlockElement.textContent = hour + " " + ampm;
     container.append(newTimeBlock);
     newTimeBlock.append(newTimeBlockElement);
@@ -48,10 +52,9 @@ $(function () {
     newButton.append(newImage);
     var currentHour = dayjs().format('H');
 
-
-// console.log(i);
-// console.log(currentHour)
-  // set attributes 
+  // console.log(i);
+  // console.log(currentHour)
+  // set attributes
     if (i < currentHour) {
       newTimeBlock.className += "row time-block past";
     } else if (i == currentHour) {
@@ -65,20 +68,26 @@ $(function () {
     newTextArea.setAttribute("rows", "3");
     newButton.setAttribute("class", "btn saveBtn col-2 col-md-1");
     newButton.setAttribute("area-label", "save");
-    // newButton.textContent = "<i class="far fa-save"></i>'";
+    newButton.setAttribute("id", i);
     newImage.setAttribute("class", "fas fa-save");
     newImage.setAttribute("area-hidden", "true");
 
-
-  //   <div id="hour-9" class="row time-block past">
-  //   <div class="col-2 col-md-1 hour text-center py-3">9AM</div>
-  //   <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
-  //   <button class="btn saveBtn col-2 col-md-1" aria-label="save">
-  //     <i class="fas fa-save" aria-hidden="true"></i>
-  //   </button>
-  // </div>
-
-  // set the past/present/future class to the time block depending on current hour
+    newButton.addEventListener("click", function(event){
+      //  event.preventDefault();
+        var hourClicked = event.target;
+        var event_time = hourClicked.getAttribute("id");
+        var event_text = hourClicked.previousSibling.value;
+        var event_entry = {
+          time: event_time,
+          text: event_text
+        }
+        savedEvents.push(event_entry);
+        localStorage.setItem("savedEvents", JSON.stringify(event_entry));
+        // console.log(hourClicked);
+        // console.log(event_time);
+        // console.log(event_text);
+        // console.log(event_entry);
+      })
 
   }
 
@@ -88,7 +97,9 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  //
+
+
+
   // TODO: Add code to display the current date in the header of the page.
   var currentDate = dayjs().format('MMMM D, YYYY');
   $('#currentDay').text(currentDate);
@@ -97,3 +108,45 @@ $(function () {
   console.log(currentHour);
 
 });
+
+
+
+
+
+
+
+
+
+
+// var events = [];
+
+// // function to check localstorage for saved data and display it in the text area
+// function init() {
+// var storedEvents = JSON.parse(localStorage.getItem("Events"));
+
+// if (storedEvents !== null) {
+//   events = storedEvents;
+// }
+
+// renderEvents();
+// for(var i = 9; i < 18; i++) {
+//   // var event = localStorage.getItem("hour-" + i);
+//   // $("#hour-" + i + " textarea").val(event);
+// }
+
+
+
+
+// function renderEvents() {
+//   for (var i = 0; i < events.length; i++) {
+//     // var event = events[i];
+//     // var eventText = event.text;
+//     // var eventTime = event.time;
+//     // var eventTextArea = document.getElementById(eventTime);
+//     // eventTextArea.value = eventText;
+//   }
+
+// }
+
+// // call init function to retrieve data from local storage and render it to the page
+// init();
