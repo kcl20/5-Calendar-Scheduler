@@ -1,99 +1,58 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# A simple daily planner
 
-## Your Task
+## Description
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+Add events to your workday from 9 to 5 pm.
+Events are saved and loaded after refreshing.
+Time blocks are color coded based on if they are in the past, present or future.
 
-You'll need to use the [Day.js](https://day.js.org/en/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Day.js in the browser.
 
-## User Story
+[screenshot](/Assets/images/screenshot.png)
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+[repo link] (https://github.com/kcl20/5-Calendar-Scheduler)
 
-## Acceptance Criteria
 
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+## Table of Contents (Optional)
 
-The following animation demonstrates the application functionality:
+n/a
 
-<!-- @TODO: create ticket to review/update image) -->
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+## Installation
 
-## Grading Requirements
+n/a
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+## Usage
 
-This Challenge is graded based on the following criteria:
+1. Open page in browser.
+2. Add events.
+3. Click save button next to each hour.
+4. Refresh browser.
 
-### Technical Acceptance Criteria: 40%
 
-* Satisfies all of the above acceptance criteria plus the following:
+## Credits
 
-  * Uses a date utility library to work with date and time
+Myself.
 
-### Deployment: 32%
+## License
 
-* Application deployed at live URL
+n/a
 
-* Application loads with no errors
+---
 
-* Application GitHub URL submitted
 
-* GitHub repo contains application code
+## Badges
 
-### Application Quality: 15%
+n/a
 
-* Application user experience is intuitive and easy to navigate
+## Features
 
-* Application user interface style is clean and polished
+Events saved to local storage.
+Dynamic color coding based on hour.
 
-* Application resembles the mock-up functionality provided in the Challenge instructions
+## How to Contribute
 
-### Repository Quality: 13%
+n/a
 
-* Repository has a unique name
+## Tests
 
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages
-
-* Repository contains quality README file with description, screenshot, and link to deployed application
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application
-
-* The URL of the GitHub repository, with a unique name and a README describing the project
-
-- - -
-© 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+1. Confirm color coding for hour in the past, present and future.
+2. Confirm events are saved to local storage and persist through browser refresh.
