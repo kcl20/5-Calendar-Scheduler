@@ -73,7 +73,7 @@ $(function () {
     newImage.setAttribute("area-hidden", "true");
 
     newButton.addEventListener("click", function(event){
-      //  event.preventDefault();
+        event.preventDefault();
         var hourClicked = event.target;
         var event_time = hourClicked.getAttribute("id");
         var event_text = hourClicked.previousSibling.value;
@@ -82,6 +82,7 @@ $(function () {
           text: event_text
         }
         savedEvents.push(event_entry);
+        console.log(savedEvents);
         localStorage.setItem("savedEvents", JSON.stringify(event_entry));
         // console.log(hourClicked);
         // console.log(event_time);
