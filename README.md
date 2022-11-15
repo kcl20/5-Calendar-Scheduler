@@ -7,7 +7,7 @@ Events are saved and loaded after refreshing.
 Time blocks are color coded based on if they are in the past, present or future.
 
 
-[screenshot](/Assets/images/screenshot.png)
+[!screenshot](/Assets/images/screenshot.png, "screenshot")
 
 [repo link] (https://github.com/kcl20/5-Calendar-Scheduler)
 
